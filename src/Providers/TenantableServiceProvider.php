@@ -1,6 +1,9 @@
 <?php  namespace Tenantable\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Tenantable\Tenantable;
+use Tenantable\TenantResolver\EloquentTenantResolver;
+use Tenantable\UserResolver\EloquentUserResolver;
 
 class TenantableServiceProvider extends ServiceProvider {
 
@@ -12,11 +15,11 @@ class TenantableServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->bind('Tenantable\TenantResolver\TenantResolverInterface', function ($app){
-            return new TenantResolver\EloquentTenantResolver($app['config'], $app, $app['request']);
+            return new EloquentTenantResolver($app['config'], $app, $app['request']);
         });
 
         $this->app->bind('Tenantable\UserResolver\UserResolverInterface', function($app){
-            return new UserResolver\EloquentUserResolver($app['Illuminate\Contracts\Auth\Guard'], $app['config']);
+            return new EloquentUserResolver($app['Illuminate\Contracts\Auth\Guard'], $app['config']);
         });
 
         $this->app->bind('Tenantable\Tenantable', function($app)
