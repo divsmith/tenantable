@@ -5,7 +5,7 @@ interface UserResolverInterface {
     /**
      * Get the ID for the authenticated user.
      *
-     * @return integer | null
+     * @return integer
      */
     public function getUserId();
 
