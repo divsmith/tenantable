@@ -2,8 +2,8 @@
 
 use Illuminate\Contracts;
 use Illuminate\Contracts\Config\Repository;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 
 class EloquentTenantResolver implements TenantResolverInterface {
 
@@ -11,7 +11,7 @@ class EloquentTenantResolver implements TenantResolverInterface {
 
     protected $config;
 
-    public function __construct(Repository $config, App $app, Request $request)
+    public function __construct(Repository $config, Application $app, Request $request)
     {
         $this->config = $config;
 
@@ -38,6 +38,6 @@ class EloquentTenantResolver implements TenantResolverInterface {
      */
     public function getTenantUserIds()
     {
-        return $this->tenant->{$this->config->get('tenantable.user.plural', 'users')}()->lists('id');
+        return $this->tenant->{$this->config->get('tenantable.user.plural', 'users')}->lists('id');
     }
 }

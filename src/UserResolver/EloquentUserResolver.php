@@ -35,6 +35,6 @@ class EloquentUserResolver implements UserResolverInterface {
      */
     public function getUserTenantIds()
     {
-        return $this->{$this->config->get('tenantable.tenant.plural', 'tenants')}()->lists('id');
+        return $this->user->{$this->config->get('tenantable.tenant.plural', 'tenants')}->lists('id');
     }
 }
