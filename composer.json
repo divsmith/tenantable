@@ -1,5 +1,5 @@
 {
-    "name": "divsmith/tenetable",
+    "name": "divsmith/tenantable",
     "description": "PHP Http Multitenancy",
     "require-dev": {
         "phpspec/phpspec": "^2.2"
