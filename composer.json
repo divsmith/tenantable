@@ -1,0 +1,15 @@
+{
+    "name": "divsmith/tenetable",
+    "description": "PHP Http Multitenancy",
+    "require-dev": {
+        "phpspec/phpspec": "^2.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Parker Smith",
+            "email": "parker@parkersmith.us"
+        }
+    ],
+    "require": {}
+}
