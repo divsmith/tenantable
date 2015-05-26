@@ -15,8 +15,8 @@ class EloquentTenantResolver implements TenantResolverInterface {
     {
         $this->config = $config;
 
-        $this->tenant = $app->make($this->config->get('tenantable.tenant.model'))->where($this->config->get('tenantable.tenant.column', 'slug'),
-                                                                $request->route($this->config->get('tenantable.tenant.parameter', 'tenant'))
+        $this->tenant = $app->make($this->config->get('tenantable.tenant.model'))->where($this->config->get('tenantable.tenant.database.column', 'slug'),
+                                                                $request->route($this->config->get('tenantable.tenant.route.parameter', 'tenant'))
                                                                 )->first();
     }
 
