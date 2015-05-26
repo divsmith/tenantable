@@ -1,6 +1,6 @@
 suites:
     my_suite:
-        namespace: Tenetable
-        psr4_prefix: Tenetable
+        namespace: Tenantable
+        psr4_prefix: Tenantable
         src_path: src
         spec_prefix: spec
