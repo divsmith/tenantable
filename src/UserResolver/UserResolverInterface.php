@@ -1,4 +1,4 @@
-<?php  namespace Tenantable\UserResolverInterface; 
+<?php  namespace Tenantable\UserResolver;
 
 interface UserResolverInterface {
 
