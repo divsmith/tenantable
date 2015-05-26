@@ -11,5 +11,10 @@
             "email": "parker@parkersmith.us"
         }
     ],
-    "require": {}
+    "require": {},
+  "autoload": {
+    "psr-4": {
+      "Tenantable\\": "src/"
+    }
+  }
 }
