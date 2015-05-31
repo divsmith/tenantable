@@ -46,14 +46,4 @@ class UserHasTenantTenantableSpec extends ObjectBehavior
         $userResolver->getUserId()->willReturn(null);
         $tenantResolver->getTenantUserIds()->willReturn([1, 2, 3, 4]);
     }
-
-    function it_returns_the_tenant_id(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)
-    {
-        $this->beConstructedWith($tenantResolver, $userResolver);
-
-        $tenantResolver->getTenantId()->shouldBeCalled();
-        $tenantResolver->getTenantId()->willReturn(2);
-
-        $this->getTenantId()->shouldReturn(2);
-    }
 }

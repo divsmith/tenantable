@@ -36,13 +36,4 @@ class UserHasTenantTenantable implements Tenantable
         return in_array($this->userResolver->getUserId(), $this->tenantResolver->getTenantUserIds());
     }
 
-    /**
-     * Get the ID for the tenant associated with the request.
-     *
-     * @return int
-     */
-    public function getTenantId()
-    {
-        return $this->tenantResolver->getTenantId();
-    }
 }
