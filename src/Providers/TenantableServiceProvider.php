@@ -1,8 +1,8 @@
 <?php  namespace Tenantable\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Tenantable\Tenantable;
 use Tenantable\TenantResolver\EloquentTenantResolver;
+use Tenantable\UserHasTenantTenantable;
 use Tenantable\UserResolver\EloquentUserResolver;
 
 class TenantableServiceProvider extends ServiceProvider {
@@ -24,7 +24,7 @@ class TenantableServiceProvider extends ServiceProvider {
 
         $this->app->bind('Tenantable\Tenantable', function($app)
         {
-            return new Tenantable($app['Tenantable\TenantResolver\TenantResolverInterface'], $app['Tenantable\UserResolver\UserResolverInterface']);
+            return new UserHasTenantTenantable($app['Tenantable\TenantResolver\TenantResolverInterface'], $app['Tenantable\UserResolver\UserResolverInterface']);
         });
     }
 
