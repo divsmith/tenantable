@@ -18,16 +18,6 @@ class EloquentUserResolver implements UserResolverInterface {
     }
 
     /**
-     * Get the ID for the authenticated user.
-     *
-     * @return integer
-     */
-    public function getUserId()
-    {
-        return $this->user->id;
-    }
-
-    /**
      * Get the IDs for the tenants the user is
      * associated with.
      *
@@ -35,6 +25,11 @@ class EloquentUserResolver implements UserResolverInterface {
      */
     public function getUserTenantIds()
     {
-        return $this->user->{$this->config->get('tenantable.tenant.plural', 'tenants')}->lists('id');
+        if ( $this->user)
+        {
+            return $this->user->{$this->config->get('tenantable.tenant.plural', 'tenants')}->lists('id');
+        }
+
+        return null;
     }
 }

@@ -30,14 +30,4 @@ class EloquentTenantResolver implements TenantResolverInterface {
         return $this->tenant->id;
     }
 
-    /**
-     * Get the IDs for the users associated with the tenant
-     * the request is directed to.
-     *
-     * @return array
-     */
-    public function getTenantUserIds()
-    {
-        return $this->tenant->{$this->config->get('tenantable.user.plural', 'users')}->lists('id');
-    }
 }

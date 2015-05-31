@@ -34,7 +34,7 @@ class UserHasTenant implements Tenantable
      */
     public function userBelongsToTenant()
     {
-        return in_array($this->userResolver->getUserId(), $this->tenantResolver->getTenantUserIds());
+        return in_array($this->tenantResolver->getTenantId(), $this->userResolver->getUserTenantIds());
     }
 
 }

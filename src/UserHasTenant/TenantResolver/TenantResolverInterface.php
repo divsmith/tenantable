@@ -9,12 +9,4 @@ interface TenantResolverInterface {
      */
     public function getTenantId();
 
-    /**
-     * Get the IDs for the users associated with the tenant
-     * the request is directed to.
-     *
-     * @return array
-     */
-    public function getTenantUserIds();
-
 }
