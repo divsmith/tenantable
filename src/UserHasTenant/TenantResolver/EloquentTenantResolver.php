@@ -1,4 +1,4 @@
-<?php  namespace Tenantable\TenantResolver; 
+<?php  namespace Tenantable\UserHasTenant\TenantResolver;
 
 use Illuminate\Contracts;
 use Illuminate\Contracts\Config\Repository;

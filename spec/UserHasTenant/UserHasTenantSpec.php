@@ -1,13 +1,13 @@
 <?php
 
-namespace spec\Tenantable;
+namespace spec\Tenantable\UserHasTenant;
 
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
-use Tenantable\TenantResolver\TenantResolverInterface;
-use Tenantable\UserResolver\UserResolverInterface;
+use Tenantable\UserHasTenant\TenantResolver\TenantResolverInterface;
+use Tenantable\UserHasTenant\UserResolver\UserResolverInterface;
 
-class UserHasTenantTenantableSpec extends ObjectBehavior
+class UserHasTenantSpec extends ObjectBehavior
 {
     function let(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)
     {
@@ -16,7 +16,7 @@ class UserHasTenantTenantableSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Tenantable\UserHasTenantTenantable');
+        $this->shouldHaveType('Tenantable\UserHasTenant\UserHasTenant');
     }
 
     function it_returns_false_when_user_not_tenant_member(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)

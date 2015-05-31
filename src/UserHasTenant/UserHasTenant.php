@@ -1,9 +1,10 @@
-<?php namespace Tenantable;
+<?php namespace Tenantable\UserHasTenant;
 
-use Tenantable\TenantResolver\TenantResolverInterface;
-use Tenantable\UserResolver\UserResolverInterface;
+use Tenantable\Tenantable;
+use Tenantable\UserHasTenant\TenantResolver\TenantResolverInterface;
+use Tenantable\UserHasTenant\UserResolver\UserResolverInterface;
 
-class UserHasTenantTenantable implements Tenantable
+class UserHasTenant implements Tenantable
 {
     /**
      * @var TenantResolverInterface
