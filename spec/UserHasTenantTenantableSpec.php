@@ -7,7 +7,7 @@ use Prophecy\Argument;
 use Tenantable\TenantResolver\TenantResolverInterface;
 use Tenantable\UserResolver\UserResolverInterface;
 
-class TenantableSpec extends ObjectBehavior
+class UserHasTenantTenantableSpec extends ObjectBehavior
 {
     function let(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)
     {
@@ -16,7 +16,7 @@ class TenantableSpec extends ObjectBehavior
 
     function it_is_initializable()
     {
-        $this->shouldHaveType('Tenantable\Tenantable');
+        $this->shouldHaveType('Tenantable\UserHasTenantTenantable');
     }
 
     function it_returns_false_when_user_not_tenant_member(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)
@@ -26,7 +26,7 @@ class TenantableSpec extends ObjectBehavior
         $userResolver->getUserId()->willReturn(5);
         $tenantResolver->getTenantUserIds()->willReturn([1, 2, 3, 4]);
 
-        $this->tenantHasUser()->shouldReturn(false);
+        $this->userBelongsToTenant()->shouldReturn(false);
     }
 
     function it_returns_true_when_user_is_tenant_member(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)
@@ -36,7 +36,7 @@ class TenantableSpec extends ObjectBehavior
         $userResolver->getUserId()->willReturn(1);
         $tenantResolver->getTenantUserIds()->willReturn([1, 2, 3, 4]);
 
-        $this->tenantHasUser()->shouldReturn(true);
+        $this->userBelongsToTenant()->shouldReturn(true);
     }
 
     function it_returns_false_when_user_not_defined(TenantResolverInterface $tenantResolver, UserResolverInterface $userResolver)
