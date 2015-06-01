@@ -22,7 +22,7 @@ class UserHasTenantServiceProvider extends ServiceProvider {
             return new EloquentUserResolver($app['Illuminate\Contracts\Auth\Guard'], $app['config']);
         });
 
-        $this->app->bind('Tenantable\UserHasTenant\UserHasTenant', function($app)
+        $this->app->bind('Tenantable\Tenantable', function($app)
         {
             return new UserHasTenant($app['Tenantable\UserHasTenant\TenantResolver\TenantResolverInterface'],
                                                         $app['Tenantable\UserHasTenant\UserResolver\UserResolverInterface']);
