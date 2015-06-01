@@ -2,7 +2,8 @@
 
 use Illuminate\Support\ServiceProvider;
 use Tenantable\UserHasTenant\TenantResolver\EloquentTenantResolver;
-use Tenantable\UserHasTenantTenantable;
+use Tenantable\UserHasTenant\TenantResolver\RequestAttributeTenantResolver;
+use Tenantable\UserHasTenant\UserHasTenant;
 use Tenantable\UserHasTenant\UserResolver\EloquentUserResolver;
 
 class UserHasTenantServiceProvider extends ServiceProvider {
@@ -15,7 +16,7 @@ class UserHasTenantServiceProvider extends ServiceProvider {
     public function register()
     {
         $this->app->bind('Tenantable\UserHasTenant\TenantResolver\TenantResolverInterface', function ($app){
-            return new EloquentTenantResolver($app['config'], $app, $app['request']);
+            return new RequestAttributeTenantResolver($app['request']);
         });
 
         $this->app->bind('Tenantable\UserHasTenant\UserResolver\UserResolverInterface', function($app){
